@@ -40,7 +40,7 @@ resource "null_resource" "aws_credentials" {
 }
 
 data "template_file" "aws_credentials" {
-  template = <<-EOF
+  template = <<EOF
 [default]
 aws_access_key_id = ${var.aws_access_key_id}
 aws_secret_access_key = ${var.aws_secret_access_key}
@@ -49,7 +49,7 @@ EOF
 
 
 data "template_file" "install_config_yaml" {
-  template = <<-EOF
+  template = <<EOF
 apiVersion: v1
 baseDomain: ${var.domain}
 compute:
@@ -153,7 +153,7 @@ resource "local_file" "worker_machineset" {
 
   filename = "${path.module}/${local.infrastructure_id}/openshift/99_openshift-cluster-api_worker-machineset-${count.index}.yaml"
 
-  content = <<-EOF
+  content = <<EOF
 apiVersion: machine.openshift.io/v1beta1
 kind: MachineSet
 metadata:

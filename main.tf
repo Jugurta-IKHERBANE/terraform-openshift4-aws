@@ -1,3 +1,10 @@
+provider "aws" {
+  region = "${var.aws_region}"
+}
+
+data "aws_caller_identity" "current" {
+}
+
 resource "random_id" "clusterid" {
   byte_length = "2"
 }
